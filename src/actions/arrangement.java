@@ -1,9 +1,11 @@
-package bean;
+package actions;
+
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by pupil on 2017/3/3.
  */
-public class arrangement {
+public class arrangement extends ActionSupport {
     private String studentAccount;
     private String teacherAccount;
     private String bookingTime;
