@@ -1,11 +1,9 @@
-package actions;
-
-import com.opensymphony.xwork2.ActionSupport;
+package beans;
 
 /**
- * Created by pupil on 2017/3/3.
+ * Created by pupil on 2017/3/10.
  */
-public class freeTime extends ActionSupport {
+public class freeTime {
     private String teacherAccount;
     private String beginTime;
     private String endTime;

@@ -1,11 +1,9 @@
-package actions;
-
-import com.opensymphony.xwork2.ActionSupport;
+package beans;
 
 /**
- * Created by pupil on 2017/3/3.
+ * Created by pupil on 2017/3/10.
  */
-public class teacher extends ActionSupport {
+public class student {
     private String account;
     private String password;
     private String name;
@@ -13,7 +11,6 @@ public class teacher extends ActionSupport {
     private int phone;
     private String college;
     private arrangement arrangement;
-    private freeTime freeTime;
 
     public String getAccount() {
         return account;
@@ -63,24 +60,11 @@ public class teacher extends ActionSupport {
         this.college = college;
     }
 
-    public actions.arrangement getArrangement() {
+    public beans.arrangement getArrangement() {
         return arrangement;
     }
 
-    public void setArrangement(actions.arrangement arrangement) {
+    public void setArrangement(beans.arrangement arrangement) {
         this.arrangement = arrangement;
-    }
-
-    public actions.freeTime getFreeTime() {
-        return freeTime;
-    }
-
-    public void setFreeTime(actions.freeTime freeTime) {
-        this.freeTime = freeTime;
-    }
-
-    @Override
-    public String execute() throws Exception {
-        return super.execute();
     }
 }
