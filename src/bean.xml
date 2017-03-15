@@ -4,8 +4,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="arrangement" class="actions.arrangement"></bean>
-    <bean id="freeTime" class="actions.freeTime"></bean>
-    <bean id="student" class="actions.student"></bean>
-    <bean id="teacher" class="actions.teacher"></bean>
+    <bean id="arrangement" class="beans.arrangement" scope="prototype"></bean>
+    <bean id="freeTime" class="beans.freeTime" scope="prototype"></bean>
+    <bean id="user" class="beans.user" scope="prototype"></bean>
 </beans>

@@ -4,12 +4,21 @@ package beans;
  * Created by pupil on 2017/3/10.
  */
 public class arrangement {
+    private int arrangementId;
     private String studentAccount;
     private String teacherAccount;
     private String bookingTime;
     private int status;
     private String title;
     private String description;
+
+    public int getArrangementId() {
+        return arrangementId;
+    }
+
+    public void setArrangementId(int arrangementId) {
+        this.arrangementId = arrangementId;
+    }
 
     public String getStudentAccount() {
         return studentAccount;

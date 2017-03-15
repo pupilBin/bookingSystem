@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="beans">
+    <class name="user" table="user">
+        <id name="account">
+            <generator class="native"></generator>
+        </id>
+        <property name="password"></property>
+        <property name="name"></property>
+        <property name="type"></property>
+        <property name="phone"></property>
+        <property name="college"></property>
+        <set name="arrangement" cascade="all" inverse="true">
+            <key column="studentAccount"></key>
+            <one-to-many class="beans.arrangement"></one-to-many>
+        </set>
+        <!--In one table,there are two foreign keys point to the same primary key,so,-->
+        <set name="arrangement0" cascade="all" inverse="true">
+            <key column="teacherAccount"></key>
+            <one-to-many class="beans.arrangement"></one-to-many>
+        </set>
+        <set name="freeTime" cascade="all" inverse="true">
+            <key column="teacherAccount"></key>
+            <one-to-many class="beans.freeTime"></one-to-many>
+        </set>
+    </class>
+
+    <class name="arrangement" table="arrangement">
+        <id name="arrangementId">
+            <generator class="native"></generator>
+        </id>
+        <property name="bookingTime"></property>
+        <property name="description"></property>
+        <property name="title"></property>
+        <property name="status"></property>
+    </class>
+
+    <class name="freeTime" table="freetime">
+        <id name="freeTimeId">
+            <generator class="native"></generator>
+        </id>
+        <property name="beginTime"></property>
+        <property name="endTime"></property>
+    </class>
+</hibernate-mapping>

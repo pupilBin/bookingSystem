@@ -1,16 +1,21 @@
 package beans;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by pupil on 2017/3/10.
  */
-public class student {
+public class user {
     private String account;
     private String password;
     private String name;
     private String type;
-    private int phone;
+    private String phone;
     private String college;
-    private arrangement arrangement;
+    private Set<arrangement> arrangement=new HashSet<arrangement>();
+    private Set<arrangement> arrangement0=new HashSet<arrangement>();
+    private Set<freeTime> freeTime=new HashSet<freeTime>();
 
     public String getAccount() {
         return account;
@@ -44,11 +49,11 @@ public class student {
         this.type = type;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -60,11 +65,27 @@ public class student {
         this.college = college;
     }
 
-    public beans.arrangement getArrangement() {
+    public Set<beans.arrangement> getArrangement() {
         return arrangement;
     }
 
-    public void setArrangement(beans.arrangement arrangement) {
+    public void setArrangement(Set<beans.arrangement> arrangement) {
         this.arrangement = arrangement;
+    }
+
+    public Set<beans.freeTime> getFreeTime() {
+        return freeTime;
+    }
+
+    public void setFreeTime(Set<beans.freeTime> freeTime) {
+        this.freeTime = freeTime;
+    }
+
+    public Set<beans.arrangement> getArrangement0() {
+        return arrangement0;
+    }
+
+    public void setArrangement0(Set<beans.arrangement> arrangement0) {
+        this.arrangement0 = arrangement0;
     }
 }

@@ -1,4 +1,4 @@
-package service;
+package IOC;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -11,7 +11,7 @@ public class factoryGetBeans {
     static {
         content=new ClassPathXmlApplicationContext("bean.xml");
     }
-    public Object getBean(String objectName){
+    public static Object getBean(String objectName){
         Object object=content.getBean(objectName);
         return object;
     }

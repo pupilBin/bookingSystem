@@ -12,12 +12,7 @@ public class judgeType extends AbstractInterceptor {
     @Override
     public String intercept(ActionInvocation invocation) throws Exception {
         Map<String, Object> map=invocation.getInvocationContext().getParameters();
-        String type=((String[])map.get("type"))[0];
-        if(type.equals("老师"))
-            return "teacher";
-        else if(type.equals("学生"))
-            return invocation.invoke();
-        else
-            return "input";
+        String account=((String[])map.get("type"))[0];
+        return invocation.invoke();
     }
 }
