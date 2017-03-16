@@ -11,6 +11,24 @@ public class arrangement {
     private int status;
     private String title;
     private String description;
+    private String teacherName;
+    private String studentName;
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
 
     public int getArrangementId() {
         return arrangementId;

@@ -9,20 +9,30 @@
     <package name="register" namespace="/register" extends="struts-default">
         <interceptors>
             <interceptor name="judgeExist" class="interceptor.judgeExist"></interceptor>
-            <interceptor-stack name="judge">
+            <interceptor-stack name="judgeExist">
                 <interceptor-ref name="judgeExist"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
-        <default-interceptor-ref name="judge"></default-interceptor-ref>
+        <default-interceptor-ref name="judgeExist"></default-interceptor-ref>
         <action name="information" class="actions.informationAction">
             <result name="success">/index.html</result>
             <result name="input">/register.html</result>
         </action>
     </package>
-    <!--<package name="login" namespace="/login" extends="struts-default">-->
-        <!--<action name="login" class="actions.login">-->
-            <!---->
-        <!--</action>-->
-    <!--</package>-->
+
+    <package name="login" namespace="/login" extends="struts-default">
+        <interceptors>
+            <interceptor name="judgeLogin" class="interceptor.judgeLogin"></interceptor>
+            <interceptor-stack name="judgeLogin">
+                <interceptor-ref name="judgeLogin"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="judgeLogin"></default-interceptor-ref>
+        <action name="information" class="actions.informationAction">
+            <result name="success">/index.html</result>
+            <result name="input">/login.html</result>
+        </action>
+    </package>
 </struts>

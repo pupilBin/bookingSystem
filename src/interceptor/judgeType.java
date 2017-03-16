@@ -11,8 +11,7 @@ import java.util.Map;
 public class judgeType extends AbstractInterceptor {
     @Override
     public String intercept(ActionInvocation invocation) throws Exception {
-        Map<String, Object> map=invocation.getInvocationContext().getParameters();
-        String account=((String[])map.get("type"))[0];
+//        String account=((String[])map.get("type"))[0];
         return invocation.invoke();
     }
 }

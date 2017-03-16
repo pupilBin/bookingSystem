@@ -38,16 +38,21 @@
         <id name="arrangementId">
             <generator class="native"></generator>
         </id>
+        <property name="studentAccount"></property>
+        <property name="teacherAccount"></property>
         <property name="bookingTime"></property>
-        <property name="description"></property>
-        <property name="title"></property>
         <property name="status"></property>
+        <property name="title"></property>
+        <property name="description"></property>
+        <property name="teacherName"></property>
+        <property name="studentName"></property>
     </class>
 
     <class name="freeTime" table="freetime">
         <id name="freeTimeId">
             <generator class="native"></generator>
         </id>
+        <property name="teacherAccount"></property>
         <property name="beginTime"></property>
         <property name="endTime"></property>
     </class>

@@ -8,4 +8,5 @@
     <bean id="freeTime" class="beans.freeTime" scope="prototype"></bean>
     <bean id="user" class="beans.user" scope="prototype"></bean>
     <bean id="changeData" class="service.changeData" scope="singleton"></bean>
+    <bean id="selectData" class="service.selectData" scope="singleton"></bean>
 </beans>
