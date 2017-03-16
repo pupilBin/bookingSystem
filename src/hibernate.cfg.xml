@@ -12,9 +12,8 @@
         <property name="show_sql">true</property>
         <!--Formatted print SQL statement, looks more clear-->
         <property name="format_sql">true</property>
-
         <!-- DB schema will be updated if needed -->
-        <property name="bookingSystem.hbm2ddl.auto">update</property>
+        <!--<property name="bookingSystem.hbm2ddl.auto">update</property>-->
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <!-- 指定连接池里最大连接数 -->
         <property name="hibernate.c3p0.max_size">100</property>
@@ -29,7 +28,7 @@
         <!-- 当连接池里面的连接用完的时候，C3P0一下获取的新的连接数 -->
         <property name="hibernate.c3p0.acquire_increment">2</property>
         <!-- 每次都验证连接是否可用 -->
-        <!--<property name="hibernate.c3p0.validate">true</property>-->
+        <property name="hibernate.c3p0.validate">true</property>
         <mapping resource="beans/beans.hbm.xml"></mapping>
     </session-factory>
 </hibernate-configuration>

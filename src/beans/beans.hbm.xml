@@ -10,9 +10,10 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="beans">
     <class name="user" table="user">
-        <id name="account">
-            <!--<generator class="native"></generator>-->
+        <id name="userId">
+            <generator class="native"></generator>
         </id>
+        <property name="account"></property>
         <property name="password"></property>
         <property name="name"></property>
         <property name="type"></property>

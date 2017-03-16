@@ -7,6 +7,16 @@ import java.util.Set;
  * Created by pupil on 2017/3/10.
  */
 public class user {
+    private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     private String account;
     private String password;
     private String name;
