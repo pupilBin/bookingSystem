@@ -8,9 +8,9 @@
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
     <package name="register" namespace="/register" extends="struts-default">
         <interceptors>
-            <interceptor name="judgeType" class="interceptor.judgeType"></interceptor>
+            <interceptor name="judgeExist" class="interceptor.judgeExist"></interceptor>
             <interceptor-stack name="judge">
-                <interceptor-ref name="judgeType"></interceptor-ref>
+                <interceptor-ref name="judgeExist"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>

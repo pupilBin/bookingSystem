@@ -11,7 +11,7 @@
 <hibernate-mapping package="beans">
     <class name="user" table="user">
         <id name="account">
-            <generator class="native"></generator>
+            <!--<generator class="native"></generator>-->
         </id>
         <property name="password"></property>
         <property name="name"></property>

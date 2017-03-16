@@ -10,8 +10,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
  * Created by pupil on 2017/3/14.
  */
 public class factoryGetSession {
-    static SessionFactory sessionFactory =null;
-    static Session session=null;
+    private static SessionFactory sessionFactory;
 
     static {
         final StandardServiceRegistry standardServiceRegistry=new StandardServiceRegistryBuilder().configure().build();
@@ -25,7 +24,6 @@ public class factoryGetSession {
     }
 
     public static Session getSession(){
-        session=sessionFactory.openSession();
-        return session;
+        return sessionFactory.openSession();
     }
 }

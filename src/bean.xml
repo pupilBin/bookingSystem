@@ -7,4 +7,5 @@
     <bean id="arrangement" class="beans.arrangement" scope="prototype"></bean>
     <bean id="freeTime" class="beans.freeTime" scope="prototype"></bean>
     <bean id="user" class="beans.user" scope="prototype"></bean>
+    <bean id="changeData" class="service.changeData" scope="singleton"></bean>
 </beans>
