@@ -18,11 +18,9 @@ public class judgeExist extends AbstractInterceptor {
         changeData changeData=(changeData) factoryGetBeans.getBean("changeData");
         //judge user'information is null or not
         if(((String[])map.get("account"))[0].equals("")||((String[])map.get("password"))[0].equals("")
-                ||((String[])map.get("name"))[0].equals("")||((String[])map.get("type"))[0].equals("")
-                ||((String[])map.get("phone"))[0].equals("")||((String[])map.get("college"))[0].equals("")){
-            return "input";
-        }
-        if(!(((String[])map.get("type"))[0].equals("老师"))&&!(((String[])map.get("type"))[0].equals("学生"))){
+                ||((String[])map.get("name"))[0].equals("")||(!(((String[])map.get("type"))[0].equals("老师"))
+                &&!(((String[])map.get("type"))[0].equals("学生")))||((String[])map.get("phone"))[0].equals("")
+                ||((String[])map.get("college"))[0].equals("")){
             return "input";
         }
         user.setAccount(((String[])map.get("account"))[0]);

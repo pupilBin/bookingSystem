@@ -8,15 +8,6 @@ import java.util.Set;
  */
 public class user {
     private int userId;
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
     private String account;
     private String password;
     private String name;
@@ -26,6 +17,14 @@ public class user {
     private Set<arrangement> arrangement=new HashSet<arrangement>();
     private Set<arrangement> arrangement0=new HashSet<arrangement>();
     private Set<freeTime> freeTime=new HashSet<freeTime>();
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getAccount() {
         return account;

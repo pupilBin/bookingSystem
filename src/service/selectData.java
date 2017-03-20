@@ -13,7 +13,10 @@ import java.util.List;
  */
 public class selectData {
     //return all teacher's information.
-    public JSONArray getTeacherInformationJsonArrayByType(){
+    public JSONArray getTeacherInformationJsonArrayByType(String type){
+        if(type.equals("老师")){
+            return null;
+        }
         JSONArray teacherInformationList=new JSONArray();
         user user=(user)factoryGetBeans.getBean("user");
 
@@ -55,7 +58,10 @@ public class selectData {
     }
 
     //return user's freeTime by account.
-    public JSONArray getFreeTimeInformationJsonArrayByAccount(String teacherAccount){
+    public JSONArray getFreeTimeInformationJsonArrayByAccount(String teacherAccount,String type){
+        if(type.equals("学生")){
+            return null;
+        }
         JSONArray freeTimeJsonArray=new JSONArray();
         freeTime freeTime=(freeTime)factoryGetBeans.getBean("freeTime");
 
@@ -125,10 +131,49 @@ public class selectData {
         Transaction transaction=session.beginTransaction();
         Query query=session.createQuery("select password from user where account=?");
         query.setString(0,account);
-        List<Object []> list = query.list();
+        List<Object> list = query.list();
         transaction.commit();
         session.close();
-        //有疑问。。。也不知道他娘的可不可以运行（23333，反正登录要是通不过这里可以换一下，fuc*
-        return list.get(0)[0].equals(password);
+        return password.equals(list.get(0).toString());
+    }
+
+    public JSONArray getTeacherDetails(String account){
+        JSONArray teacherDetails=new JSONArray();
+        arrangement arrangement=(arrangement) factoryGetBeans.getBean("arrangement");
+        Session session= factoryGetSession.getSession();
+        Transaction transaction=session.beginTransaction();
+        Query query=session.createQuery("select bookingTime,status,title,description,teacherName,studentName from arrangement where teacherAccount=?");
+        query.setString(0,account);
+        List<Object[]> list = query.list();
+        transaction.commit();
+        session.close();
+        for(Object[] obj:list){
+            arrangement.setBookingTime((String) obj[0]);
+            arrangement.setStatus((int) obj[1]);
+            arrangement.setTitle((String) obj[2]);
+            arrangement.setDescription((String) obj[3]);
+            arrangement.setTeacherName((String) obj[4]);
+            arrangement.setStudentName((String) obj[5]);
+            teacherDetails.add(arrangement);
+        }
+        return teacherDetails;
+    }
+
+    public JSONArray getFreeTime(String account){
+        JSONArray freeTimeArray=new JSONArray();
+        freeTime freeTime=(freeTime) factoryGetBeans.getBean("freeTime");
+        Session session= factoryGetSession.getSession();
+        Transaction transaction=session.beginTransaction();
+        Query query=session.createQuery("select beginTime,endTime from freeTime where teacherAccount=?");
+        query.setString(0,account);
+        List<Object[]> list = query.list();
+        transaction.commit();
+        session.close();
+        for(Object[] obj:list){
+            freeTime.setBeginTime((String)obj[0]);
+            freeTime.setEndTime((String)obj[1]);
+            freeTimeArray.add(freeTime);
+        }
+        return freeTimeArray;
     }
 }

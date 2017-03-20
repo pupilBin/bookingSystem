@@ -6,7 +6,7 @@
 
 <struts>
     <constant name="struts.i18n.encoding" value="UTF-8"></constant>
-    <package name="register" namespace="/register" extends="struts-default">
+    <package name="register" namespace="/register" extends="json-default">
         <interceptors>
             <interceptor name="judgeExist" class="interceptor.judgeExist"></interceptor>
             <interceptor-stack name="judgeExist">
@@ -16,23 +16,28 @@
         </interceptors>
         <default-interceptor-ref name="judgeExist"></default-interceptor-ref>
         <action name="information" class="actions.informationAction">
-            <result name="success">/index.html</result>
+            <!--<result name="success">/index.html</result>-->
             <result name="input">/register.html</result>
+            <result type="json"></result>
         </action>
     </package>
 
-    <package name="login" namespace="/login" extends="struts-default">
+    <package name="login" namespace="/login" extends="json-default">
         <interceptors>
             <interceptor name="judgeLogin" class="interceptor.judgeLogin"></interceptor>
-            <interceptor-stack name="judgeLogin">
-                <interceptor-ref name="judgeLogin"></interceptor-ref>
-                <interceptor-ref name="defaultStack"></interceptor-ref>
-            </interceptor-stack>
         </interceptors>
-        <default-interceptor-ref name="judgeLogin"></default-interceptor-ref>
+        <!--login action-->
         <action name="information" class="actions.informationAction">
-            <result name="success">/index.html</result>
+            <interceptor-ref name="judgeLogin"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <!--<result name="success">/index.html</result>-->
             <result name="input">/login.html</result>
+            <result type="json"></result>
+        </action>
+        <!--after choose a teacher,it'll list a little information about the teacher-->
+        <action name="teacherDetailsAction" class="actions.teacherDetailsAction">
+            <result type="json"></result>
         </action>
     </package>
+
 </struts>

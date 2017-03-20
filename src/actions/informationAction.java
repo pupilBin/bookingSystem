@@ -18,17 +18,24 @@ public class informationAction extends ActionSupport {
     private String college;
     private JSONArray arrangements;
     private JSONArray freeTime;
+    private JSONArray teacherInformationList;
     @Override
     public String execute() throws Exception {
+        //这个地方有可能出错，这个equals有可能出现问题，没有初始化的String不晓得是null还是？
         //if this condition is true,the user must be logged in,then the method will search the information of the user.
-        if(getName().equals("")){
+        if(getName()==null){
             selectData selectData=(selectData) factoryGetBeans.getBean("selectData");
             user user=selectData.getUserInformationByAccount(getAccount());
             setName(user.getName());
             setType(user.getType());
             setPhone(user.getPhone());
             setCollege(user.getCollege());
+
         }
+        selectData selectData=(selectData) factoryGetBeans.getBean("selectData");
+        setArrangements(selectData.getArrangementsInformationJsonArrayByAccount(getAccount(),getType()));
+        setFreeTime(selectData.getFreeTimeInformationJsonArrayByAccount(getAccount(),getType()));
+        setTeacherInformationList(selectData.getTeacherInformationJsonArrayByType(getType()));
         return super.execute();
     }
 
@@ -78,5 +85,29 @@ public class informationAction extends ActionSupport {
 
     public void setCollege(String college) {
         this.college = college;
+    }
+
+    public JSONArray getArrangements() {
+        return arrangements;
+    }
+
+    public void setArrangements(JSONArray arrangements) {
+        this.arrangements = arrangements;
+    }
+
+    public JSONArray getFreeTime() {
+        return freeTime;
+    }
+
+    public void setFreeTime(JSONArray freeTime) {
+        this.freeTime = freeTime;
+    }
+
+    public JSONArray getTeacherInformationList() {
+        return teacherInformationList;
+    }
+
+    public void setTeacherInformationList(JSONArray teacherInformationList) {
+        this.teacherInformationList = teacherInformationList;
     }
 }
